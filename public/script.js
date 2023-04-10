@@ -10,13 +10,6 @@
 ##################################################################################
 ################################################################################*/
 
-var express = require('express');
-var app = express();
-
-app.post('/', function (req, res) {
-	res.send('hello world')
-})
-
 var i = 0,
 minimizedWidth = new Array,
 minimizedHeight = new Array,
@@ -82,12 +75,6 @@ function openMinimized(id) {
 	});				
 }
 
-function dataGet() {
-	fetch('73.191.23.84:11443', sysdata.csv)
-	.then(x => x.text())
-	.then(y => document.getElementById("testdat").innerHTML = y);
-}
-
 $(document).ready(function(){
 	$(".window").each(function() {      		// window template
 		$(this).css('z-index',1000)
@@ -138,11 +125,6 @@ $(document).ready(function(){
     $(".openWindow").click(function(){		// open closed window
 		openWindow($(this).attr("data-id"));
     });
-
-	$(".fetchtest").click(function(){
-		dataGet();
-		//document.getElementById("testdat").innerHTML = "it ran";
-	})
 	
     $(".winmaximize").click(function(){
 		if ($(this).parent().parent().hasClass('fullSizeWindow')) {			// minimize

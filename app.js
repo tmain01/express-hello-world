@@ -1,5 +1,6 @@
-const express = require('express')
+const express = require('express');
 const path = require("path");
+const fs = require('fs');
 const app = express()
 var bodyParser = require('body-parser');
 
@@ -16,6 +17,12 @@ app.post('/post', urlencodedParser, function (req, res) {
       machine_type:req.body.os_version,
       processor:req.body.processor
    };
+   try {
+      fs.writeFileSync('/public/sysdat.json', response);
+      // file written successfullu
+   } catch (err) {
+      console.error(err);
+   }
    console.log(response);
    res.end(JSON.stringify(response));
 })

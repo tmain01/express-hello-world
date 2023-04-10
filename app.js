@@ -18,7 +18,7 @@ app.post('/post', urlencodedParser, function (req, res) {
       processor:req.body.processor
    };
    try {
-      fs.writeFileSync('/public/sysdat.json', JSON.stringify(response));
+      fs.writeFileSync('public/sysdat.json', JSON.stringify(response));
       // file written successfullu
    } catch (err) {
       console.error(err);

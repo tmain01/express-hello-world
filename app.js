@@ -1,6 +1,24 @@
 const express = require('express')
 const path = require("path");
 const app = express()
+var bodyParser = require('body-parser');
+
+// Create application/x-www-form-urlencoded parser
+var urlencodedParser = bodyParser.urlencoded({ extended: false })
+
+app.post('/post', urlencodedParser, function (req, res) {
+   // Prepare output in JSON format
+   response = {
+      device_name:req.body.device_name,
+      os:req.body.os,
+      release:req.body.release,
+      os_version:req.body.os_version,
+      machine_type:req.body.os_version,
+      processor:req.body.processor
+   };
+   console.log(response);
+   res.end(JSON.stringify(response));
+})
 
 // #############################################################################
 // Logs all request paths and method

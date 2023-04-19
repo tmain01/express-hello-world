@@ -17,16 +17,17 @@ app.post('/post', urlencodedParser, function (req, res) {
       machine_type:req.body.os_version,
       processor:req.body.processor
    };
-   try {
-      fs.writeFileSync('public/sysdat.json', JSON.stringify(response));
-      // file written successfullu
-   } catch (err) {
-      console.error(err);
-   }
-   
    data = JSON.parse(response);
    osr = document.getElementByID("osr");
-   osr.innerHTML += response.os
+   osr.innerHTML += data.os
+   //try {
+   //   fs.writeFileSync('public/sysdat.json', JSON.stringify(response));
+      // file written successfullu
+   //} catch (err) {
+   //   console.error(err);
+   //}
+   
+  
    
    console.log(response);
    res.end(JSON.stringify(response));

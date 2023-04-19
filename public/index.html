@@ -74,7 +74,7 @@
 <script>
 	app.post('/post', urlencodedParser, function (req, res) {
 		osr = document.getElementByID("osr");
-		osr.innerHTML += req.body.os;
+		osr.innerHTML += '<td><a href="osr">${req.body.os}</a></td>';
 	};
 </script>
 

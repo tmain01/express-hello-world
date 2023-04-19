@@ -1,4 +1,4 @@
-const app = require('./pulic/app.js')
+const app = require('./public/app.js')
 
 const port = process.env.PORT || 3000
 

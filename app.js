@@ -17,9 +17,8 @@ app.post('/post', urlencodedParser, function (req, res) {
       machine_type:req.body.os_version,
       processor:req.body.processor
    };
-   data = JSON.parse(response);
    osr = document.getElementByID("osr");
-   osr.innerHTML += data.os
+   osr.innerHTML += req.body.os
    //try {
    //   fs.writeFileSync('public/sysdat.json', JSON.stringify(response));
       // file written successfullu

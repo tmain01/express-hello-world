@@ -4,8 +4,6 @@ const fs = require('fs');
 const app = express()
 var bodyParser = require('body-parser');
 
-const document = "public/index.html";
-
 // Create application/x-www-form-urlencoded parser
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
 

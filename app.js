@@ -23,6 +23,11 @@ app.post('/post', urlencodedParser, function (req, res) {
    } catch (err) {
       console.error(err);
    }
+   
+   data = JSON.parse(response);
+   osr = document.getElementByID("osr");
+   osr.innerHTML += response.os
+   
    console.log(response);
    res.end(JSON.stringify(response));
 })

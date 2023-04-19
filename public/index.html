@@ -35,12 +35,6 @@
 				</tr>
 			</table>
 		</div>
-		<script>
-			app.post('/post', urlencodedParser, function (req, res) {
-				osr = document.getElementByID("osr");
-				osr.innerHTML += req.body.os;
-			};
-		</script>
 		<!--<div class="window" data-title="Second">
 			Second Window
 		</div>
@@ -74,5 +68,12 @@
 		<!-- You can use this template freely if you leave a visible link to HTML5-Templates.com -->
 	</div>
 </body>
+	
+<script>
+	app.post('/post', urlencodedParser, function (req, res) {
+		osr = document.getElementByID("osr");
+		osr.innerHTML += req.body.os;
+	};
+</script>
 
 </html>

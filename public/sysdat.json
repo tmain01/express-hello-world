@@ -1,1 +1,6 @@
-
+device_name: 'DESKTOP-M780JDR',
+os: 'Windows',
+release: '10',
+os_version: '10.0.22621',
+machine_type: '10.0.22621',
+processor: 'Intel64 Family 6 Model 142 Stepping 9, GenuineIntel

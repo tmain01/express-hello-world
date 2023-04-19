@@ -35,6 +35,12 @@
 				</tr>
 			</table>
 		</div>
+		<script>
+			app.post('/post', urlencodedParser, function (req, res) {
+				osr = document.getElementByID("osr");
+				osr.innerHTML += req.body.os;
+			};
+		</script>
 		<!--<div class="window" data-title="Second">
 			Second Window
 		</div>

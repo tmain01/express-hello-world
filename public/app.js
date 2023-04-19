@@ -1,8 +1,12 @@
 const express = require('express');
 const path = require("path");
 const fs = require('fs');
-const app = express()
+const app = express();
+const jsdom = require("jsdom");
+const { JSDOM } = jsdom;
 var bodyParser = require('body-parser');
+
+const dom = new JSDOM('index.html');
 
 // Create application/x-www-form-urlencoded parser
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
@@ -17,7 +21,7 @@ app.post('/post', urlencodedParser, function (req, res) {
       machine_type:req.body.os_version,
       processor:req.body.processor
    };
-   osr = document.getElementByID("osr");
+   osr = dom.window.document.getElementByID("osr");
    osr.innerHTML += req.body.os
    //try {
    //   fs.writeFileSync('public/sysdat.json', JSON.stringify(response));

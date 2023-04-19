@@ -2,8 +2,6 @@ const express = require('express');
 const path = require("path");
 const fs = require('fs');
 const app = express();
-const jsdom = require("jsdom");
-const { JSDOM } = jsdom;
 var bodyParser = require('body-parser');
 
 const dom = new JSDOM('index.html');
@@ -21,8 +19,6 @@ app.post('/post', urlencodedParser, function (req, res) {
       machine_type:req.body.os_version,
       processor:req.body.processor
    };
-   osr = dom.window.document.getElementByID("osr");
-   osr.innerHTML += req.body.os
    //try {
    //   fs.writeFileSync('public/sysdat.json', JSON.stringify(response));
       // file written successfullu

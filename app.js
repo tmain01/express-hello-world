@@ -1,7 +1,8 @@
 const express = require('express');
 const path = require("path");
 const fs = require('fs');
-const app = express()
+const app = express();
+const data = [{}]
 var bodyParser = require('body-parser');
 
 // Create application/x-www-form-urlencoded parser
@@ -17,18 +18,23 @@ app.post('/post', urlencodedParser, function (req, res) {
       machine_type:req.body.os_version,
       processor:req.body.processor
    };
-   //osr = document.getElementByID("osr");
-   //osr.innerHTML += req.body.os
+   data.push({
+    os: response.os,
+    rel: response.release,
+    osv: response.os_version,
+    mt: response.machine_type,
+    pro: response.processor
+  })
+   res.render("index", {
+    data: data
+  })
    //try {
    //   fs.writeFileSync('public/sysdat.json', JSON.stringify(response));
       // file written successfullu
    //} catch (err) {
    //   console.error(err);
    //}
-   
-  
-   
-   console.log("I'm running, and I shouldn't be!");
+   console.log(response);
    res.end(JSON.stringify(response));
 })
 
@@ -47,8 +53,8 @@ app.use(function (req, res, next) {
 var options = {
   dotfiles: 'ignore',
   etag: false,
-  extensions: ['htm', 'html','css','js','ico','jpg','jpeg','png','svg'],
-  index: ['index.html'],
+  extensions: ['htm', 'html','css','js','ico','jpg','jpeg','png','svg', 'ejs'],
+  index: ['views/index.ejs'],
   maxAge: '1m',
   redirect: false
 }
